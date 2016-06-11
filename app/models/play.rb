@@ -5,10 +5,11 @@ class Play
   embeds_many :bets
 
   def self.start_play
+    weather = :nice # Temp
   	play = Play.new
-	players = Player.all
-	players.each do |p|
-		p.make_bet play
-	end
+  	players = Player.all
+  	players.each do |p|
+  		p.make_bet play, weather
+  	end
   end
 end
