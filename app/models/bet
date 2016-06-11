@@ -1,0 +1,7 @@
+class Bet
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  embedded_in :play
+  belongs_to :player
+end
