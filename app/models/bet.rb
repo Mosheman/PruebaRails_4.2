@@ -1,19 +1,15 @@
 class Bet
   include Mongoid::Document
   include Mongoid::Timestamps
+  extend Enumerize
 
   field :amount, type: Integer
-  filed :color_cd, type: Integer
   field :winner, type: Boolean
+  field :color
+  enumerize :color, in: [:green, :red, :black]
 
   belongs_to :player
   belongs_to :play
-
-  as_enum :color, {
-	  :green => 0,
-	  :red => 1,
-	  :black => 2
-  }
 
   def default_bet
 	random_number = rand(8..15)

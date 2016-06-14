@@ -101,6 +101,8 @@ GEM
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
     dotenv (2.0.2)
+    enumerize (1.1.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.7.0)
     globalid (0.3.6)
@@ -202,8 +204,6 @@ GEM
     sidekiq-cron (0.3.1)
       rufus-scheduler (>= 2.0.24)
       sidekiq (>= 2.17.3)
-    simple_enum (2.3.0)
-      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.7.1)
     sprockets (3.6.0)
@@ -238,6 +238,7 @@ DEPENDENCIES
   bson_ext
   byebug
   coffee-rails (~> 4.1.0)
+  enumerize
   jbuilder (~> 2.0)
   jquery-rails
   mongoid
@@ -248,7 +249,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sidekiq
   sidekiq-cron
-  simple_enum
   spring
   turbolinks
   uglifier (>= 1.3.0)

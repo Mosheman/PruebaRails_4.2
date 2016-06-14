@@ -34,7 +34,7 @@ gem 'bson_ext'
 gem 'rest-client'
 
 #Enum
-gem 'simple_enum'
+gem 'enumerize'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
