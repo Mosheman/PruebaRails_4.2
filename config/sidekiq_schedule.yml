@@ -1,0 +1,5 @@
+schedule_example_job:
+  cron: "*/3 * * * *"
+  class: "PlayWorker"
+  queue: default
+  active_job: true
