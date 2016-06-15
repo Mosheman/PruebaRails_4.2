@@ -3,7 +3,7 @@ class Bet
   include Mongoid::Timestamps
   extend Enumerize
 
-  field :amount, type: Integer
+  field :amount, type: Integer, default: 0
   field :winner, type: Boolean
   field :color
   enumerize :color, in: [:green, :red, :black]
