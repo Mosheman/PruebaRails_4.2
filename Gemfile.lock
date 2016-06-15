@@ -241,6 +241,7 @@ DEPENDENCIES
   enumerize
   jbuilder (~> 2.0)
   jquery-rails
+  minitest
   mongoid
   pry
   rails (= 4.2.5)
