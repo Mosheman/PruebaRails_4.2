@@ -4,14 +4,19 @@ class Play
 
   has_many :bets
 
+  field :winning_color
+  enumerize :winning_color, in: [:green, :red, :black]
+
   def start_play
     #binding.pry
     weather = Play.look_weather
-
+    # People enter the game
   	players = Player.all
+    # Everyone make his own bet
   	players.each do |p|
   		p.make_bet self, weather.will_rain
   	end
+    # Spin the weel
 
   end
 
