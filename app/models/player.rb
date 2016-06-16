@@ -23,7 +23,8 @@ class Player
 	  	end
 	end
 	# => Choose color where the bet is placed
-	my_bet.betting_color = choose_betting_color
+	number = rand(0..99)
+	my_bet.betting_color = Play.choose_color_by number
 	my_bet.save
 
 	self.save
@@ -42,17 +43,17 @@ class Player
   	end
   end
 
-  def choose_betting_color
-  	# => Assumptions where made: the players choose color at same rate
-  	number = rand(0..29)
-  	case number
-		when 0..9
-			Bet.betting_color.green
-		when 10..19
-			Bet.betting_color.red
-		when 20..29
-			Bet.betting_color.black
-    end
-  end
+  # def choose_betting_color
+  # 	# => Assumptions where made: the players choose color at same rate
+  # 	number = rand(0..29)
+  # 	case number
+		# when 0..9
+		# 	Bet.betting_color.green
+		# when 10..19
+		# 	Bet.betting_color.red
+		# when 20..29
+		# 	Bet.betting_color.black
+  #   end
+  # end
 
 end

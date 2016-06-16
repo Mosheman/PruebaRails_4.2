@@ -56,10 +56,10 @@ class PlayTest < ActiveSupport::TestCase
     assert_not_equal nil, @play.winning_color
   end
 
-  test "choose_color_by" do
-    assert_equal Play.winning_color.green, @play.choose_color_by(1)
-    assert_equal Play.winning_color.red, @play.choose_color_by(14)
-    assert_equal Play.winning_color.black, @play.choose_color_by(77)
+  test "self.choose_color_by" do
+    assert_equal Play.winning_color.green, Play.choose_color_by(1)
+    assert_equal Play.winning_color.red, Play.choose_color_by(14)
+    assert_equal Play.winning_color.black, Play.choose_color_by(77)
   end
 
   test "pay_winner" do

@@ -42,7 +42,7 @@ class PlayerTest < ActiveSupport::TestCase
   	assert_equal 10000, Player.last.money
   end
 
-  test "choose_betting_color" do
-    assert_equal Enumerize::Value, @player.choose_betting_color.class
-  end
+  # test "choose_betting_color" do
+  #   assert_equal Enumerize::Value, @player.choose_betting_color.class
+  # end
 end

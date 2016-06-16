@@ -29,10 +29,10 @@ class Play
 
   def spin_the_weel
     number = rand(0..99)
-    self.winning_color =  choose_color_by number
+    self.winning_color =  Play.choose_color_by number
   end
 
-  def choose_color_by number
+  def self.choose_color_by number
     case number
       when 0..1
         Play.winning_color.green
