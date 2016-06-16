@@ -105,6 +105,7 @@ GEM
       activesupport (>= 4.1.0)
     hitimes (1.2.2)
     i18n (0.7.0)
+    ice_cube (0.11.1)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -203,7 +204,14 @@ GEM
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
       redis-namespace (~> 1.5, >= 1.5.2)
+<<<<<<< e89a0d851130b276fd37f0bedcccea4c7ce52cba
 >>>>>>> Config Database
+=======
+    sidetiq (0.6.3)
+      celluloid (>= 0.14.1)
+      ice_cube (= 0.11.1)
+      sidekiq (>= 3.0.0)
+>>>>>>> gemfile to merge
     slop (3.6.0)
     spring (1.7.1)
     sprockets (3.6.0)
@@ -248,6 +256,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sidekiq
+  sidetiq
   spring
   turbolinks
   uglifier (>= 1.3.0)
