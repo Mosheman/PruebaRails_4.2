@@ -2,6 +2,7 @@
 
 1. Installing MongoDB
 
+>>>>>>> 638ec2e3a96351d385b387402a56e32946c76b1f
 First let's install MongoDB from their official repository:
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
