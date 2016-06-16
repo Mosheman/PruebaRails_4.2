@@ -5,7 +5,7 @@ schedule_play_job:
   active_job: true
 
 schedule_money_job:
-  cron: "0 0 * * * Chile/Santiago"
+  cron: "59 23 * * * Chile/Santiago"
   class: "RefillMoneyWorker"
   queue: default
   active_job: true
