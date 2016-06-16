@@ -5,7 +5,8 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
-    @last_play = Play.last
+    @plays= Play.all.reverse
+    @weather = Weather.last
   end
 
   # GET /players/1
@@ -62,18 +63,18 @@ class PlayersController < ApplicationController
     end
   end
 
-  def temp_start_play
-    @play = Play.new
-    @play.start_play
-    if @play.save
-      redirect_to players_url
-    end
-  end
+  # def temp_start_play
+  #   @play = Play.new
+  #   @play.start_play
+  #   if @play.save
+  #     redirect_to players_url
+  #   end
+  # end
 
-  def temp_reset_all_players_money
-    Player.reset_money
-    redirect_to players_url
-  end
+  # def temp_reset_all_players_money
+  #   Player.reset_money
+  #   redirect_to players_url
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
