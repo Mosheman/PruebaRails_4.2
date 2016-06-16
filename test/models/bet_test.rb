@@ -33,8 +33,8 @@ class BetTest < ActiveSupport::TestCase
   	assert_equal 1000, @bet.amount
   end
 
-  test "apply_bet" do
-  	@bet.apply_bet 10
+  test "apply_bet_amount" do
+  	@bet.apply_bet_amount 10
   	# betting_amount = (p_money * (random_number * 0.01)).floor
   	assert_equal 100, @bet.amount
   	assert_equal 900, @player.money

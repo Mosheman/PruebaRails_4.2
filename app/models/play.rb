@@ -12,30 +12,30 @@ class Play
     #binding.pry
     weather = Play.look_weather
     # People enter the game
-  	players = Player.all
+  	players = Player.all - Player.where(:money => 0)
     # Everyone make his own bet
   	players.each do |p|
   		p.make_bet self, weather.will_rain
   	end
     # Spin the weel
     self.spin_the_weel
-    # Pay to winners
+    # Pay the winners
 
   end
 
   def spin_the_weel
     number = rand(0..99)
-    winner_color_by number
+    self.winning_color =  choose_color_by number
   end
 
-  def winner_color_by number
+  def choose_color_by number
     case number
       when 0..1
-        self.winning_color = Play.winning_color.green
+        Play.winning_color.green
       when 2..50
-        self.winning_color = Play.winning_color.red
+        Play.winning_color.red
       when 51..99
-        self.winning_color = Play.winning_color.black
+        Play.winning_color.black
     end
   end
 
