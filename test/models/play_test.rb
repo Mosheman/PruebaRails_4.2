@@ -49,4 +49,16 @@ class PlayTest < ActiveSupport::TestCase
   	Play.look_weather
   	assert_equal 1, Weather.all.size
   end
+
+  test "spin_the_weel" do
+    assert_equal nil, @play.winning_color
+    @play.spin_the_weel
+    assert_not_equal nil, @play.winning_color
+  end
+
+  test "choose_color_by" do
+    assert_equal Play.winning_color.green, @play.choose_color_by(1)
+    assert_equal Play.winning_color.red, @play.choose_color_by(14)
+    assert_equal Play.winning_color.black, @play.choose_color_by(77)
+  end
 end

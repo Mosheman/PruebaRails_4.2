@@ -15,18 +15,23 @@ class Player
   	if self.money <= 1000
   		my_bet.all_in self.money
   	else
-  		# => Makes bet type by weather
+  		# => Makes bet amount type by weather
 	  	if will_rain
 	  		my_bet.conservative_bet
 	  	else
 	  		my_bet.default_bet
 	  	end
 	end
+	# => Choose color where the bet is placed
+	my_bet.betting_color = choose_betting_color
+	my_bet.save
+
+	self.save
   end
 
   def discount_money amount
   	self.money = self.money - amount
-  	save
+  	self.save
   	amount
   end
 
@@ -36,4 +41,18 @@ class Player
   		p.save
   	end
   end
+
+  def choose_betting_color
+  	# => Assumptions where made: the players choose color at same rate
+  	number = rand(0..29)
+  	case number
+		when 0..9
+			Bet.betting_color.green
+		when 10..19
+			Bet.betting_color.red
+		when 20..29
+			Bet.betting_color.black
+    end
+  end
+
 end

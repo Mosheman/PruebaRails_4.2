@@ -27,7 +27,8 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Bettings</th>
+                  <th>Betted color</th>
+                  <th>Betted amount</th>
                 </tr>
               </thead>
 
@@ -35,12 +36,13 @@
                 <% @last_play.bets.each do |bet| %>
                   <tr>
                     <td><%= bet.player.name %></td>
+                    <td><%= bet.betting_color %></td>
                     <td><%= bet.amount %></td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
-            <div class="panel-footer">Winner color: </div>
+            <div class="panel-footer">Winner color: <%= @last_play.winning_color.to_s.humanize.capitalize %></div>
           </div> <!-- panel panel-default -->
         <% end %>
 

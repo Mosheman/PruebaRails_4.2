@@ -1,18 +1,42 @@
 class Play
   include Mongoid::Document
   include Mongoid::Timestamps
+  extend Enumerize
 
   has_many :bets
+
+  field :winning_color
+  enumerize :winning_color, in: [:green, :red, :black]
 
   def start_play
     #binding.pry
     weather = Play.look_weather
-
-  	players = Player.all
+    # People enter the game
+  	players = Player.all - Player.where(:money => 0)
+    # Everyone make his own bet
   	players.each do |p|
   		p.make_bet self, weather.will_rain
   	end
+    # Spin the weel
+    self.spin_the_weel
+    # Pay the winners
 
+  end
+
+  def spin_the_weel
+    number = rand(0..99)
+    self.winning_color =  choose_color_by number
+  end
+
+  def choose_color_by number
+    case number
+      when 0..1
+        Play.winning_color.green
+      when 2..50
+        Play.winning_color.red
+      when 51..99
+        Play.winning_color.black
+    end
   end
 
   def self.look_weather
