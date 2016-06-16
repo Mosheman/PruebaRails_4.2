@@ -10,11 +10,11 @@ class PlayTest < ActiveSupport::TestCase
   	Play.delete_all
   	Weather.delete_all
 
-    @bet_one = Bet.new
-    @bet_two = Bet.new
     @player_one = Player.new :name => "Testman", :money => 1000
     @player_two = Player.new :name => "aQAman", :money => 1000
     @play = Play.new
+    @bet_one = Bet.new :amount => 100, :betting_color => Bet.betting_color.red
+    @bet_two = Bet.new :amount => 100, :betting_color => Bet.betting_color.green
 
   	@player_one.bets.push(@bet_one)
   	@player_two.bets.push(@bet_two)
@@ -60,5 +60,19 @@ class PlayTest < ActiveSupport::TestCase
     assert_equal Play.winning_color.green, @play.choose_color_by(1)
     assert_equal Play.winning_color.red, @play.choose_color_by(14)
     assert_equal Play.winning_color.black, @play.choose_color_by(77)
+  end
+
+  test "pay_winner" do
+    @play.winning_color = Play.winning_color.red
+    @player_one.discount_money @bet_one.amount
+    @play.save
+    @play.pay_winner @bet_one
+    assert_equal 1100, @player_one.money
+
+    @play.winning_color = Play.winning_color.green
+    @player_two.discount_money @bet_two.amount
+    @play.save
+    @play.pay_winner @bet_two
+    assert_equal 2400, @player_two.money
   end
 end

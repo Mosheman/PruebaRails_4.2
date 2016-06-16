@@ -19,8 +19,12 @@ class Play
   	end
     # Spin the weel
     self.spin_the_weel
-    # Pay the winners
-
+    # Pay winners
+    self.bets.each do |b|
+      if b.betting_color == self.winning_color
+        pay_winner b
+      end
+    end
   end
 
   def spin_the_weel
@@ -53,4 +57,12 @@ class Play
     weather
   end
 
+  def pay_winner bet
+    if (Bet.betting_color.red == bet.betting_color) || (Bet.betting_color.black == bet.betting_color)
+      bet.player.money += (bet.amount*2)
+    elsif bet.betting_color == Bet.betting_color.green
+      bet.player.money += (bet.amount*15)
+    end
+    bet.player.save
+  end
 end
