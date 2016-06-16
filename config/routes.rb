@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  post 'temp_reset_all_players_money' => 'players#temp_reset_all_players_money', as: :temp_reset_all_players_money
-  post 'temp_start_play' => 'players#temp_start_play', as: :temp_start_play
+
+  #post 'temp_reset_all_players_money' => 'players#temp_reset_all_players_money', as: :temp_reset_all_players_money
+  #post 'temp_start_play' => 'players#temp_start_play', as: :temp_start_play
+
   resources :players
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,12 @@
-schedule_example_job:
+
+schedule_play_job:
   cron: "*/3 * * * *"
   class: "PlayWorker"
+  queue: default
+  active_job: true
+
+schedule_money_job:
+  cron: "59 23 * * * Chile/Santiago"
+  class: "RefillMoneyWorker"
   queue: default
   active_job: true
