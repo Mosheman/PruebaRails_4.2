@@ -37,9 +37,9 @@ class PlayerTest < ActiveSupport::TestCase
   	assert_equal 1, @player.money
   end
 
-  test "self.reset_money" do
-  	Player.reset_money
-  	assert_equal 10000, Player.last.money
+  test "self.refill_money" do
+  	Player.refill_money
+  	assert_equal 11000, Player.last.money
   end
 
   # test "choose_betting_color" do

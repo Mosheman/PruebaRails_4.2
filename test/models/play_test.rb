@@ -39,8 +39,6 @@ class PlayTest < ActiveSupport::TestCase
   # => Methods
   #####################################
   test "make_bet" do
-  	Bet.delete_all
-  	@play.start_play
   	assert_equal 2, @play.bets.all.size
   end
 

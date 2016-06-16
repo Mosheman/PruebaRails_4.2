@@ -8,23 +8,25 @@ class Play
   field :winning_color
   enumerize :winning_color, in: [:green, :red, :black]
 
-  def start_play
+  def self.start_play
     #binding.pry
     weather = Play.look_weather
     # People enter the game
   	players = Player.all - Player.where(:money => 0)
     # Everyone make his own bet
+    play = Play.new
   	players.each do |p|
-  		p.make_bet self, weather.will_rain
+  		p.make_bet play, weather.will_rain
   	end
     # Spin the weel
-    self.spin_the_weel
+    play.spin_the_weel
     # Pay winners
-    self.bets.each do |b|
-      if b.betting_color == self.winning_color
-        pay_winner b
+    play.bets.each do |b|
+      if b.betting_color == play.winning_color
+        play.pay_winner b
       end
     end
+    play.save
   end
 
   def spin_the_weel

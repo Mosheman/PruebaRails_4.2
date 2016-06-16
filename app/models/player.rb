@@ -36,9 +36,9 @@ class Player
   	amount
   end
 
-  def self.reset_money
+  def self.refill_money
   	Player.all.each do |p|
-  		p.money = 10000
+  		p.money += 10000
   		p.save
   	end
   end
