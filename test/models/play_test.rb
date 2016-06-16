@@ -55,4 +55,13 @@ class PlayTest < ActiveSupport::TestCase
     @play.spin_the_weel
     assert_not_equal nil, @play.winning_color
   end
+
+  test "winner_color_by" do
+    @play.winner_color_by 1
+    assert_equal "green", @play.winning_color
+    @play.winner_color_by 14
+    assert_equal "red", @play.winning_color
+    @play.winner_color_by 77
+    assert_equal "black", @play.winning_color
+  end
 end

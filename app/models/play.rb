@@ -1,6 +1,7 @@
 class Play
   include Mongoid::Document
   include Mongoid::Timestamps
+  extend Enumerize
 
   has_many :bets
 
@@ -17,7 +18,25 @@ class Play
   		p.make_bet self, weather.will_rain
   	end
     # Spin the weel
+    self.spin_the_weel
+    # Pay to winners
 
+  end
+
+  def spin_the_weel
+    number = rand(0..99)
+    winner_color_by number
+  end
+
+  def winner_color_by number
+    case number
+      when 0..1
+        self.winning_color = Play.winning_color.green
+      when 2..50
+        self.winning_color = Play.winning_color.red
+      when 51..99
+        self.winning_color = Play.winning_color.black
+    end
   end
 
   def self.look_weather
